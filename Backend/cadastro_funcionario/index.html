@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="../Exercicios_JS/trabalhador.js"></script>
+    <title>Empresa X</title>
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div>
+            <h3>Apresentar-se Como:</h3>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="cargo" id="gerente" value="Gerente">
+                <label class="form-check-label" for="gerente">
+                    Gerente
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="cargo" id="desenvolvedor" value="Desenvolvedor">
+                <label class="form-check-label" for="desenvolvedor">
+                    Desenvolvedor
+                </label>
+            </div>
+            <br>
+            <button type="button" class="btn btn-primary" id="apresentar" onclick="btn_apresentar()">Apresentar-se</button>
+
+            <div id="apresentacaoDiv"></div>
+            <button type="button" class="btn btn-danger" id="trabalhar" onclick="btn_trabalhar()">Trabalhar</button>
+            <div id="HoraTrabalho"></div>
+        </div>
+
+    </div>
+
+    <script>
+        const radioButtons = document.querySelectorAll('input[name="cargo"]');
+        radioButtons.forEach(function (radioButton) {
+            radioButton.addEventListener('change', function () {
+                const cargoSelecionado = this.value;
+                btn_apresentar(cargoSelecionado);
+                btn_trabalhar(cargoSelecionado)
+            });
+        });
+        var Gerente1 = new Gerente("Carla", 27, "Gerente", true, "Segurança");
+        var Programador1 = new Programador("Ju", 27, "Desenvolvedor", true, "JavaScript e Java");
+
+        function btn_apresentar() {
+            const cargoSelecionado = document.querySelector('input[name="cargo"]:checked').value;
+
+           
+            if (cargoSelecionado === "Gerente") {
+                var apresentacao = "Nome: " + Gerente1.nome + ", Idade: " + Gerente1.idade + ", Cargo: " + Gerente1.cargo + ", Departamento: " + Gerente1.departamento;
+                var apresentacaoDiv = document.getElementById("apresentacaoDiv");
+                apresentacaoDiv.innerHTML = "<h4>Apresentação:</h4><p>" + apresentacao + "</p>";
+            } else if (cargoSelecionado === "Desenvolvedor") {
+                var apresentacao = "Nome: " + Programador1.nome + ", Idade: " + Programador1.idade + ", Cargo: " + Programador1.cargo + ", Departamento: " + Programador1.linguagem;
+                var apresentacaoDiv = document.getElementById("apresentacaoDiv");
+                apresentacaoDiv.innerHTML = "<h4>Apresentação:</h4><p>" + apresentacao + "</p>";
+            }
+        }
+
+        function btn_trabalhar() {
+            const cargoSelecionado = document.querySelector('input[name="cargo"]:checked').value;
+
+            const agora = new Date();
+            if (cargoSelecionado === "Gerente") {
+                if(ponto === true){}
+                var trabalhar = Gerente1.nome + " bateu o ponto para iniciar o trabalho às " + agora.getHours() + ":" + agora.getMinutes();
+                var HoraTrabalhoDiv = document.getElementById("HoraTrabalho");
+                HoraTrabalhoDiv.innerHTML = "<h4>Informativo:</h4><p>" + trabalhar + "</p>";
+            }
+
+            if (cargoSelecionado === "Desenvolvedor") {
+                var trabalhar = Programador1.nome + " bateu o ponto para iniciar o trabalho às " + agora.getHours() + ":" + agora.getMinutes();
+                var HoraTrabalhoDiv = document.getElementById("HoraTrabalho");
+                HoraTrabalhoDiv.innerHTML = "<h4>Informativo:</h4><p>" + trabalhar + "</p>";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

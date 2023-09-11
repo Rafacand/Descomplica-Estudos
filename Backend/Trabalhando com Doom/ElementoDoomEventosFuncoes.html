@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function exemploEvento(){
+            alert("mostrando o alert");
+        }
+        function overMouse(){
+            document.getElementById("Exemplo").innerHTML = "Alisando";
+        }
+        function leaveMouse(){
+            document.getElementById("Exemplo").innerHTML = "HUMMMMMM Alisou";
+        }
+    </script>
+</head>
+<body>
+    <p>Clique no botão a seguir</p>
+    <form>
+        <input type="button" onclick="exemploEvento()" value="Apresentar">
+
+    </form>
+    <h1 id="Exemplo" onmouseover="overMouse()" onmouseleave="leaveMouse()">
+        Alise meu pelo
+    </h1>
+</body>
+</html>
