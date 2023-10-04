@@ -14,7 +14,7 @@
 
 
 </head>
-<body style="">
+<body >
     <header class="bg-primary text-black text-center py-4">
         <h1>Descomplica Repo</h1>
         <nav class="">
@@ -23,7 +23,7 @@
                     <a class="nav-link  text-danger" href="../../index.html">Cardapio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active font-weight-bold text-dark" href="Backend/carrinhos_compras/index.html">Carrinho de compras</a>
+                    <a class="nav-link active font-weight-bold text-dark" href="../carrinhos_compras/index.html">API - Carrinho de compras</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-danger" href="../cadastro_funcionario/">Doom Testes</a>
@@ -36,13 +36,13 @@
         <div class="row d-flex justify-content-center">
             <div class="col-lg-10 col-12 pt-3" id="carrinho">
                 <div class="d-flex">
-                    <div class="pt-1"><h4>My T-shirt</h4></div>
+                    <div class="pt-1"><h4>Meu Carrinho</h4></div>
                     <div class="ml-auto p-2"><a href="#" class="text-dark text-decoration-none" id="mobile-font">LOGIN</a></div>
                     <div class="p-2"><a href="#" class="text-dark text-decoration-none a" id="mobile-font">HELP</a></div>                                            
                 </div>
                 <div class="d-flex flex-column pt-4">
                     <div><h5 class="text-uppercase font-weight-normal">shopping bag</h5></div>
-                    <div class="font-weight-normal">2 items</div>
+                    
                 </div>
                 <div class="d-flex flex-row px-lg-5 mx-lg-5 mobile" id="heading">
                     <div class="px-lg-5 mr-lg-5" id="produc">PRODUCTS</div>
@@ -62,7 +62,8 @@
                         <button class="btn btn-sm bg-light border border-dark">GO BACK</button>
                     </div>
                     <div class="px-md-0 px-1" id="footer-font">
-                        <b class="pl-md-4">SUBTOTAL R$<span class="pl-md-4" id="valorTotalCompra"></span></b>
+                        <b class="pl-md-4">Unidades : <span class="pl-md-4" id="qtd_Items"></span></b>
+                        <b class="pl-md-4">SUBTOTAL : R$<span class="pl-md-4" id="valorTotalCompra"></span></b>
                     </div>
                     <div>
                         <button class="btn btn-sm bg-dark text-white px-lg-5 px-3">CONTINUE</button>
@@ -71,5 +72,6 @@
             </div>
         </div>
     </div>
+    <script>start()</script>
 </body>
 </html>
