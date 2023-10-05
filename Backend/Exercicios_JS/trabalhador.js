@@ -28,14 +28,14 @@ class Funcionario {
     Trabalhar() {
         const agora = new Date(); 
         if(this.ponto === true){
-        console.log(this.getnome()+ " bateu o ponto para iniciar o trabalho! ");
-        console.log(agora.getHours()+":"+agora.getMinutes());
-        this.ponto = false;
-        }
-             
-        else if(this.ponto === false){
-            console.log(this.getnome()+ " bateu o ponto para finalizar o trabalho! ");
-            console.log(agora.getHours()+":"+agora.getMinutes());
+            var trabalhar = Funcionario.nome + " bateu o ponto para iniciar o trabalho às " + agora.getHours() + ":" + agora.getMinutes();
+            var HoraTrabalhoDiv = document.getElementById("HoraTrabalho");
+            HoraTrabalhoDiv.innerHTML = "<h4>Informativo:</h4><p>" + trabalhar + "</p>";
+            this.ponto = false;
+        }else if(this.ponto === false){
+            var trabalhar = Funcionario.nome + " Terminou o Trabalho ás " + agora.getHours() + ":" + agora.getMinutes();
+            var HoraTrabalhoDiv = document.getElementById("HoraTrabalho");
+            HoraTrabalhoDiv.innerHTML = "<h4>Informativo:</h4><p>" + trabalhar + "</p>";
             this.ponto = true;
         }
         
@@ -54,10 +54,25 @@ class Gerente extends Funcionario{
     }
 
     apresentar_se() {
-        console.log("Olá, sou o " + this.nome +
-            "\nminha idade é: " + this.idade +
-            "\nSou do cargo de: " + this.cargo +
-            "\nDo setor de: " + this.departamento);
+        var apresentacao = "Nome: " + Gerente1.nome + ", Idade: " + Gerente1.idade + ", Cargo: " + Gerente1.cargo + ", Departamento: " + Gerente1.departamento;
+        var apresentacaoDiv = document.getElementById("apresentacaoDiv");
+        apresentacaoDiv.innerHTML = "<h4>Apresentação:</h4><p>" + apresentacao + "</p>";
+    }
+
+    Trabalhar() {
+        const agora = new Date(); 
+        if(this.ponto === true){
+            var trabalhar = Gerente1.nome + " bateu o ponto para iniciar o trabalho às " + agora.getHours() + ":" + agora.getMinutes();
+            var HoraTrabalhoDiv = document.getElementById("HoraTrabalho");
+            HoraTrabalhoDiv.innerHTML = "<h4>Informativo:</h4><p>" + trabalhar + "</p>";
+            this.ponto = false;
+        }else if(this.ponto === false){
+            var trabalhar = Gerente1.nome + " Terminou o Trabalho ás " + agora.getHours() + ":" + agora.getMinutes();
+            var HoraTrabalhoDiv = document.getElementById("HoraTrabalho");
+            HoraTrabalhoDiv.innerHTML = "<h4>Informativo:</h4><p>" + trabalhar + "</p>";
+            this.ponto = true;
+        }
+        
     }
 }
 
@@ -71,23 +86,27 @@ class Programador extends Funcionario{
     }
 
     apresentar_se() {
-        console.log("Olá, sou o " + this.nome +
-            "\nminha idade é: " + this.idade +
-            "\nSou do cargo de: " + this.cargo +
-            "\nProgramo em: " + this.linguagem);
+        var apresentacao = "Nome: " + Programador1.nome + ", Idade: " + Programador1.idade + ", Cargo: " + Programador1.cargo + ", Departamento: " + Programador1.linguagem;
+        var apresentacaoDiv = document.getElementById("apresentacaoDiv");
+        apresentacaoDiv.innerHTML = "<h4>Apresentação:</h4><p>" + apresentacao + "</p>";
+    }
+    Trabalhar() {
+        const agora = new Date(); 
+        if(this.ponto === true){
+            var trabalhar = Programador1.nome + " bateu o ponto para iniciar o trabalho às " + agora.getHours() + ":" + agora.getMinutes();
+            var HoraTrabalhoDiv = document.getElementById("HoraTrabalho");
+            HoraTrabalhoDiv.innerHTML = "<h4>Informativo:</h4><p>" + trabalhar + "</p>";
+            this.ponto = false;
+        }else if(this.ponto === false){
+            var trabalhar = Programador1.nome + " Terminou o Trabalho ás " + agora.getHours() + ":" + agora.getMinutes();
+            var HoraTrabalhoDiv = document.getElementById("HoraTrabalho");
+            HoraTrabalhoDiv.innerHTML = "<h4>Informativo:</h4><p>" + trabalhar + "</p>";
+            this.ponto = true;
+        }
+        
     }
 }
 
-var funcionario1 = new Funcionario("Rafael", 27, "TI - Desenvolvedor");
-var Gerente1 = new Gerente("Carla", 27, "Gerente",true,"Segurança");
-var Programador1 = new Programador("Ju",27,"Desenvolvedor",true,"JavaScript e Java");
-
-console.log("#############")
-
-Gerente1.apresentar_se();
-Gerente1.Trabalhar();
-console.log("#############")
-
-Programador1.apresentar_se();
-Programador1.Trabalhar();
-Programador1.Trabalhar();
+//var funcionario1 = new Funcionario("Rafael", 27, "TI - Desenvolvedor");
+//var Gerente1 = new Gerente("Carla", 27, "Gerente",true,"Segurança");
+//var Programador1 = new Programador("Ju",27,"Desenvolvedor",true,"JavaScript e Java");

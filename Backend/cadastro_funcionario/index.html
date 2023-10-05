@@ -52,7 +52,7 @@
             <button type="button" class="btn btn-primary" id="apresentar" onclick="btn_apresentar()">Apresentar-se</button>
 
             <div id="apresentacaoDiv"></div>
-            <button type="button" class="btn btn-danger" id="trabalhar" onclick="btn_trabalhar()">Trabalhar</button>
+            <button type="button" class="btn btn-danger" id="trabalhar" onclick="btn_bater_ponto()">Bater Ponto</button>
             <div id="HoraTrabalho"></div>
         </div>
 
@@ -63,8 +63,8 @@
         radioButtons.forEach(function (radioButton) {
             radioButton.addEventListener('change', function () {
                 const cargoSelecionado = this.value;
-                btn_apresentar(cargoSelecionado);
-                btn_trabalhar(cargoSelecionado)
+              //  btn_apresentar(cargoSelecionado);
+              //  btn_bater_ponto(cargoSelecionado);
             });
         });
         var Gerente1 = new Gerente("Carla", 27, "Gerente", true, "Segurança");
@@ -75,31 +75,24 @@
 
            
             if (cargoSelecionado === "Gerente") {
-                var apresentacao = "Nome: " + Gerente1.nome + ", Idade: " + Gerente1.idade + ", Cargo: " + Gerente1.cargo + ", Departamento: " + Gerente1.departamento;
-                var apresentacaoDiv = document.getElementById("apresentacaoDiv");
-                apresentacaoDiv.innerHTML = "<h4>Apresentação:</h4><p>" + apresentacao + "</p>";
+                Gerente1.apresentar_se();
+
             } else if (cargoSelecionado === "Desenvolvedor") {
-                var apresentacao = "Nome: " + Programador1.nome + ", Idade: " + Programador1.idade + ", Cargo: " + Programador1.cargo + ", Departamento: " + Programador1.linguagem;
-                var apresentacaoDiv = document.getElementById("apresentacaoDiv");
-                apresentacaoDiv.innerHTML = "<h4>Apresentação:</h4><p>" + apresentacao + "</p>";
+               Programador1.apresentar_se();
             }
         }
 
-        function btn_trabalhar() {
+        function btn_bater_ponto() {
             const cargoSelecionado = document.querySelector('input[name="cargo"]:checked').value;
-
             const agora = new Date();
             if (cargoSelecionado === "Gerente") {
-                if(ponto === true){}
-                var trabalhar = Gerente1.nome + " bateu o ponto para iniciar o trabalho às " + agora.getHours() + ":" + agora.getMinutes();
-                var HoraTrabalhoDiv = document.getElementById("HoraTrabalho");
-                HoraTrabalhoDiv.innerHTML = "<h4>Informativo:</h4><p>" + trabalhar + "</p>";
+               Gerente1.Trabalhar()
+               console.log(Gerente1.ponto)
             }
 
             if (cargoSelecionado === "Desenvolvedor") {
-                var trabalhar = Programador1.nome + " bateu o ponto para iniciar o trabalho às " + agora.getHours() + ":" + agora.getMinutes();
-                var HoraTrabalhoDiv = document.getElementById("HoraTrabalho");
-                HoraTrabalhoDiv.innerHTML = "<h4>Informativo:</h4><p>" + trabalhar + "</p>";
+                Programador1.Trabalhar()
+                console.log(Programador1.ponto)
             }
         }
 
